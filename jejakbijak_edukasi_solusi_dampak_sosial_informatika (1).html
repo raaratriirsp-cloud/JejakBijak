@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JejakBijak: Edukasi & Solusi Dampak Sosial Informatika</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-600 selection:text-white">
+
+    <!-- =====================================================================
+         1. NAVIGASI ATAS & HERO SECTION (#beranda)
+    ====================================================================== -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo Brand -->
+                <a href="#beranda" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 flex items-center justify-center text-white shadow-md shadow-indigo-600/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-fingerprint text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-extrabold text-xl tracking-tight text-slate-900">Jejak<span class="text-indigo-600">Bijak</span></span>
+                        <span class="hidden sm:block text-[10px] font-semibold text-slate-500 uppercase tracking-wider -mt-1">Dampak Sosial Informatika</span>
+                    </div>
+                </a>
+
+                <!-- Menu Navigasi Desktop -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="#beranda" class="px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">Beranda</a>
+                    <a href="#wawasan-dampak" class="px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">Wawasan</a>
+                    <a href="#analisis-masalah" class="px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">Analisis Masalah</a>
+                    <a href="#tujuan-sasaran" class="px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">Tujuan & Sasaran</a>
+                    <a href="#solusi-lingkungan" class="px-3 py-2 rounded-xl text-sm font-semibold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-list-check text-indigo-600"></i> Solusi Lingkungan
+                    </a>
+                    <a href="#motivasi-refleksi" class="px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">Motivasi</a>
+                </nav>
+
+                <!-- Tombol Hamburger Mobile -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" aria-label="Buka Menu" class="p-2.5 rounded-xl text-slate-600 hover:text-indigo-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-xl">
+            <a href="#beranda" class="mobile-link block px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Beranda</a>
+            <a href="#wawasan-dampak" class="mobile-link block px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Wawasan Dampak</a>
+            <a href="#analisis-masalah" class="mobile-link block px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Analisis Masalah</a>
+            <a href="#tujuan-sasaran" class="mobile-link block px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Tujuan & Sasaran</a>
+            <a href="#solusi-lingkungan" class="mobile-link block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-indigo-700 bg-indigo-50">Solusi Lingkungan</a>
+            <a href="#motivasi-refleksi" class="mobile-link block px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Motivasi & Refleksi</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative overflow-hidden bg-gradient-to-b from-indigo-50/90 via-white to-slate-50 pt-14 pb-20 lg:pt-24 lg:pb-28">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-72 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100/80 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
+                    Proyek Informatika SMA • Literasi & Etika Digital
+                </div>
+                
+                <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                    JejakBijak: <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600">Edukasi & Solusi Dampak Sosial Informatika</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
+                    Website interaktif untuk mengkaji dampak positif dan negatif teknologi informasi di lingkungan sekolah serta kehidupan sehari-hari, lengkap dengan panduan solusi nyata dan komitmen aksi digital.
+                </p>
+
+                <!-- Tombol CTA -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#wawasan-dampak" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40 transition-all flex items-center justify-center gap-2.5">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        Pelajari Wawasan Dampak
+                    </a>
+                    <a href="#solusi-lingkungan" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-bold text-base border border-slate-200 shadow-sm transition-all flex items-center justify-center gap-2.5">
+                        <i class="fa-solid fa-list-check text-indigo-600"></i>
+                        Checklist Rencana Aksi
+                    </a>
+                </div>
+
+                <!-- 3 Pilar Ringkas -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-14 pt-8 border-t border-slate-200/80">
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm">
+                        <div class="text-2xl font-display font-extrabold text-indigo-600">Dualisme</div>
+                        <div class="text-xs sm:text-sm text-slate-600 mt-1">Teknologi sebagai peluang sekaligus tantangan sosial</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm">
+                        <div class="text-2xl font-display font-extrabold text-blue-600">3 Domain</div>
+                        <div class="text-xs sm:text-sm text-slate-600 mt-1">Solusi di sekolah, keluarga, dan masyarakat</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm">
+                        <div class="text-2xl font-display font-extrabold text-emerald-600">Data Valid</div>
+                        <div class="text-xs sm:text-sm text-slate-600 mt-1">Didukung sumber resmi (APJII, Kominfo, Kemendikbud)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         2. WAWASAN MENDALAM DAMPAK SOSIAL INFORMATIKA (#wawasan-dampak)
+    ====================================================================== -->
+    <section id="wawasan-dampak" class="py-16 lg:py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-globe"></i> Kajian Teoretis Informatika
+                </span>
+                <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-5">
+                    Wawasan Mendalam Dampak Sosial Informatika
+                </h2>
+                
+                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm text-left">
+                    <div class="flex flex-col sm:flex-row items-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="font-display text-lg sm:text-xl font-bold text-slate-900">
+                                Teknologi Informasi sebagai "Pedang Bermata Dua"
+                            </h3>
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                <strong>Dampak Sosial Informatika</strong> merujuk pada segala bentuk perubahan struktural, perilaku, budaya, dan interaksi masyarakat akibat masifnya penggunaan Teknologi Informasi dan Komunikasi (TIK). Konsep ini menyoroti bagaimana komputer, internet, dan media sosial mentransformasi peradaban manusia.
+                            </p>
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                Di satu sisi, TIK bertindak sebagai pendorong kemajuan melalui kemudahan akses informasi, kolaborasi tanpa batas, dan efisiensi ekonomi. Namun di sisi lain, TIK membawa kerentanan serius seperti perundungan siber, kebocoran data pribadi, penyebaran hoaks, dan krisis privasi apabila tidak diimbangi dengan literasi digital yang memadai.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Interaktif: Sekolah vs Kehidupan Sehari-hari -->
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col sm:flex-row justify-center gap-3 mb-8" role="tablist">
+                    <button type="button" id="tab-btn-sekolah" onclick="switchImpactTab('sekolah')" class="px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/25">
+                        <i class="fa-solid fa-school"></i>
+                        Lingkungan Sekolah (4+4 Detail)
+                    </button>
+                    <button type="button" id="tab-btn-harian" onclick="switchImpactTab('harian')" class="px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100">
+                        <i class="fa-solid fa-city"></i>
+                        Kehidupan Sehari-hari (4+4 Detail)
+                    </button>
+                </div>
+
+                <!-- PANEL SEKOLAH -->
+                <div id="tab-panel-sekolah" class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                    <!-- Positif Sekolah -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-emerald-100 shadow-sm">
+                        <div class="flex items-center gap-3.5 mb-6 pb-4 border-b border-slate-100">
+                            <div class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-circle-plus"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Peluang & Kemajuan</span>
+                                <h3 class="font-display text-lg sm:text-xl font-extrabold text-slate-900">4 Dampak Positif di Sekolah</h3>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm">
+                            <li class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-book-open text-emerald-600"></i> 1. Akses Sumber Belajar Digital Tanpa Batas
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Siswa dapat mengakses buku elektronik, jurnal ilmiah, video pembelajaran interaktif, dan perpustakaan daring kapan pun untuk memperkaya materi pelajaran.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-people-group text-emerald-600"></i> 2. Kolaborasi Tim Proyek Berbasis Cloud
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Platform seperti Google Workspace dan GitHub memudahkan siswa menyelesaikan tugas kelompok secara sinkron dari rumah masing-masing.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-laptop-file text-emerald-600"></i> 3. Efisiensi Manajemen Pembelajaran (LMS)
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Sistem sekolah berbasis digital mempercepat distribusi tugas, pengumpulan PR, evaluasi ujian berbasis komputer, serta transparansi nilai.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-award text-emerald-600"></i> 4. Pengembangan Portofolio Karya Remaja
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Pelajar dapat mempublikasikan artikel, desain kreatif, atau proyek pemrograman sebagai rekam jejak digital positif untuk seleksi prestasi.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Negatif Sekolah -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-rose-100 shadow-sm">
+                        <div class="flex items-center gap-3.5 mb-6 pb-4 border-b border-slate-100">
+                            <div class="w-11 h-11 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-circle-minus"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Tantangan & Kerentanan</span>
+                                <h3 class="font-display text-lg sm:text-xl font-extrabold text-slate-900">4 Dampak Negatif di Sekolah</h3>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm">
+                            <li class="p-4 rounded-2xl bg-rose-50/60 border border-rose-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-comment-slash text-rose-600"></i> 1. Cyberbullying di Grup Kelas & Media Sosial
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Perundungan lewat stiker wajah, pengucilan di grup percakapan, hingga akun gosip anonim merusak kesehatan mental korban di lingkungan sekolah.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-rose-50/60 border border-rose-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-camera-rotate text-rose-600"></i> 2. Pelanggaran Privasi (Oversharing Foto/Video)
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Merekam teman atau guru secara diam-diam saat pembelajaran lalu mengunggahnya demi konten viral tanpa izin melanggar etika privasi.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-rose-50/60 border border-rose-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-robot text-rose-600"></i> 3. Plagiarisme Instan & Ketergantungan AI Mentah
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Menyalin jawaban tugas secara mentah dari AI tanpa proses analisis melemahkan kemampuan berpikir kritis dan integritas akademik siswa.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-rose-50/60 border border-rose-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-mobile-screen text-rose-600"></i> 4. Distraksi Konsentrasi Belajar di Kelas
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Notifikasi gim daring dan media sosial saat jam pelajaran memecah fokus siswa serta menurunkan keaktifan diskusi tatap muka.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PANEL HARIAN -->
+                <div id="tab-panel-harian" class="hidden grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                    <!-- Positif Sehari-hari -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-emerald-100 shadow-sm">
+                        <div class="flex items-center gap-3.5 mb-6 pb-4 border-b border-slate-100">
+                            <div class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-circle-plus"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Kemudahan & Inovasi</span>
+                                <h3 class="font-display text-lg sm:text-xl font-extrabold text-slate-900">4 Dampak Positif Sehari-hari</h3>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm">
+                            <li class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-comments text-emerald-600"></i> 1. Komunikasi Instan Tanpa Batas Ruang
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Mempermudah silaturahmi dengan keluarga dan kerabat jauh melalui pesan instan dan panggilan video berkualitas tinggi secara real-time.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-wallet text-emerald-600"></i> 2. Efisiensi Transaksi E-Commerce & E-Wallet
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Pembayaran nontunai (QRIS) dan belanja daring mempercepat pemenuhan kebutuhan harian serta mendukung perkembangan UMKM.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-map-location-dot text-emerald-600"></i> 3. Kemudahan Layanan Publik & Transportasi
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Peta digital, transportasi daring, dan layanan administrasi kependudukan online menghemat waktu mobilitas warga sehari-hari.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-briefcase text-emerald-600"></i> 4. Lahirnya Peluang Ekonomi Kreatif Baru
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Membuka ragam profesi modern seperti kreator konten edukatif, desainer digital, dan spesialis pemasaran media sosial.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Negatif Sehari-hari -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-rose-100 shadow-sm">
+                        <div class="flex items-center gap-3.5 mb-6 pb-4 border-b border-slate-100">
+                            <div class="w-11 h-11 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-circle-minus"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Risiko Sosial & Privasi</span>
+                                <h3 class="font-display text-lg sm:text-xl font-extrabold text-slate-900">4 Dampak Negatif Sehari-hari</h3>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm">
+                            <li class="p-4 rounded-2xl bg-rose-50/60 border border-rose-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-fingerprint text-rose-600"></i> 1. Jejak Digital Permanen & Doxxing
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Kecerobohan membagikan data pribadi di media sosial memudahkan pelaku kejahatan melakukan pencurian identitas dan teror.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-rose-50/60 border border-rose-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-bullhorn text-rose-600"></i> 2. Penyebaran Hoaks & Polarisasi Sosial
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Berita bohong yang diteruskan tanpa verifikasi di grup keluarga memicu kepanikan publik dan perselisihan antarwarga.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-rose-50/60 border border-rose-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-bed text-rose-600"></i> 3. Kecanduan Layar & Kesehatan Mental Terganggu
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Kebiasaan <em>doomscrolling</em> larut malam merusak kualitas tidur, kesehatan mata, serta memicu kecemasan akibat standar semu di medsos.</p>
+                            </li>
+                            <li class="p-4 rounded-2xl bg-rose-50/60 border border-rose-100">
+                                <strong class="text-slate-900 flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-people-arrows text-rose-600"></i> 4. Phubbing & Renggangnya Relasi Keluarga
+                                </strong>
+                                <p class="text-slate-600 leading-relaxed">Terlalu sibuk dengan gawai saat berkumpul menurunkan empati dan kehangatan komunikasi langsung antaranggota keluarga.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         3. ANALISIS MASALAH NYATA & SUMBER REFERENSI (#analisis-masalah)
+    ====================================================================== -->
+    <section id="analisis-masalah" class="py-16 lg:py-24 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-indigo-600">Kajian & Studi Kasus</span>
+                <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+                    Analisis Masalah Nyata: Privasi, Etika & Keamanan Digital
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Bedah mendalam mengenai akar penyebab, konsekuensi waktu, pihak terdampak, serta rujukan sumber referensi yang valid.
+                </p>
+            </div>
+
+            <!-- Akar Penyebab -->
+            <div class="mb-12">
+                <h3 class="font-display text-xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-lg"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
+                    Akar Penyebab Masalah
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200">
+                        <h4 class="font-bold text-slate-900 mb-2">1. Minimnya Literasi Privasi & FOMO</h4>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Dorongan mengikuti tren (<em>Fear of Missing Out</em>) membuat remaja mengunggah data sensitif tanpa sadar bahwa informasi di internet bersifat abadi.</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200">
+                        <h4 class="font-bold text-slate-900 mb-2">2. Efek Anonimitas Daring</h4>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Kemudahan menggunakan akun palsu atau berlindung di balik layar membuat sebagian orang kehilangan empati dan mudah melontarkan ujaran kebencian.</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200">
+                        <h4 class="font-bold text-slate-900 mb-2">3. Algoritma Sensasional & Hoaks</h4>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Platform digital memprioritaskan konten emosional yang memicu reaksi cepat, menyulitkan pengguna membedakan fakta dan manipulasi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dampak Jangka Pendek & Panjang -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Pendek -->
+                <div class="bg-amber-50/50 rounded-3xl p-6 sm:p-8 border border-amber-200">
+                    <h4 class="font-display text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-amber-600"></i> Dampak Jangka Pendek
+                    </h4>
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-amber-600 mt-1"></i> Terjadinya perselisihan dan perundungan siber antar-teman di sekolah.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-amber-600 mt-1"></i> Penurunan fokus belajar akibat waktu istirahat tersita gawai.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-amber-600 mt-1"></i> Kerentanan akun terhadap penipuan daring (phishing/social engineering).</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-amber-600 mt-1"></i> Teguran disiplin sekolah akibat unggahan melanggar norma berseragam.</li>
+                    </ul>
+                </div>
+
+                <!-- Panjang -->
+                <div class="bg-rose-50/50 rounded-3xl p-6 sm:p-8 border border-rose-200">
+                    <h4 class="font-display text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-hourglass-half text-rose-600"></i> Dampak Jangka Panjang
+                    </h4>
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-triangle-exclamation text-rose-600 mt-1"></i> Rekam jejak digital buruk menggagalkan seleksi beasiswa, kuliah, atau kerja.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-triangle-exclamation text-rose-600 mt-1"></i> Krisis kesehatan mental dan kecemasan sosial berkepanjangan.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-triangle-exclamation text-rose-600 mt-1"></i> Pencurian identitas oleh pihak tak bertanggung jawab.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-triangle-exclamation text-rose-600 mt-1"></i> Konsekuensi hukum serius berdasarkan Undang-Undang ITE.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pihak Terdampak & Sumber Referensi Valid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Pihak Terdampak -->
+                <div class="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200">
+                    <h4 class="font-display text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-users text-indigo-600"></i> Pihak yang Terdampak
+                    </h4>
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
+                        <li><strong>1. Pelajar / Remaja:</strong> Mengalami tekanan psikologis, risiko privasi, dan ancaman masa depan akademik.</li>
+                        <li><strong>2. Orang Tua & Keluarga:</strong> Menanggung beban emosional dan kerugian finansial akibat kejahatan siber anak.</li>
+                        <li><strong>3. Guru & Sekolah:</strong> Menghadapi penurunan konsentrasi belajar siswa dan risiko pencemaran nama baik institusi.</li>
+                        <li><strong>4. Masyarakat Luas:</strong> Melemahnya kohesi sosial akibat penyebaran hoaks dan polarisasi digital.</li>
+                    </ul>
+                </div>
+
+                <!-- Sumber Referensi Valid -->
+                <div class="bg-indigo-950 text-white rounded-3xl p-6 sm:p-8">
+                    <h4 class="font-display text-lg font-bold text-indigo-300 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-book-bookmark text-indigo-400"></i> Sumber Referensi Valid
+                    </h4>
+                    <ul class="space-y-3 text-xs sm:text-sm text-indigo-100/90">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-link text-indigo-400 mt-1"></i>
+                            <span><strong>APJII (Asosiasi Penyelenggara Jasa Internet Indonesia):</strong> Data survei penetrasi dan perilaku pengguna internet di Indonesia.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-link text-indigo-400 mt-1"></i>
+                            <span><strong>Kementerian Komunikasi dan Digital (Kemkomdigi):</strong> Panduan literasi digital nasional, anti-hoaks, dan etika berinternet.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-link text-indigo-400 mt-1"></i>
+                            <span><strong>Kemendikbudristek:</strong> Kurikulum Informatika SMA & regulasi pencegahan perundungan di lingkungan satuan pendidikan.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         4. TUJUAN PENGEMBANGAN & SASARAN PENGGUNA (#tujuan-sasaran)
+    ====================================================================== -->
+    <section id="tujuan-sasaran" class="py-16 lg:py-24 bg-indigo-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
+                    Arah & Target Platform
+                </span>
+                <h2 class="font-display text-2xl sm:text-4xl font-extrabold mt-3 mb-4">
+                    Tujuan Pengembangan & Sasaran Pengguna
+                </h2>
+                <p class="text-indigo-200/85 text-sm sm:text-base leading-relaxed">
+                    Dirancang untuk menjembatani kesenjangan literasi digital antar-ekosistem pendidikan dan keluarga.
+                </p>
+            </div>
+
+            <!-- 4 Tujuan -->
+            <div class="mb-14">
+                <h3 class="font-display text-lg sm:text-xl font-bold text-indigo-300 mb-6 flex items-center gap-2.5">
+                    <i class="fa-solid fa-bullseye"></i> 4 Tujuan Pengembangan Utama
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/30 text-indigo-300 flex items-center justify-center font-bold mb-4">01</div>
+                        <h4 class="font-bold text-white text-base mb-2">Kesadaran Dini</h4>
+                        <p class="text-xs sm:text-sm text-indigo-200/80">Membekali pemahaman sifat permanen jejak digital bagi pelajar.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/30 text-blue-300 flex items-center justify-center font-bold mb-4">02</div>
+                        <h4 class="font-bold text-white text-base mb-2">Solusi Praktis</h4>
+                        <p class="text-xs sm:text-sm text-indigo-200/80">Menghadirkan panduan penyelesaian masalah yang aplikatif di sekolah dan rumah.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/30 text-emerald-300 flex items-center justify-center font-bold mb-4">03</div>
+                        <h4 class="font-bold text-white text-base mb-2">Saring Sebelum Sharing</h4>
+                        <p class="text-xs sm:text-sm text-indigo-200/80">Melatih nalar kritis memverifikasi informasi dan melindungi data pribadi.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/30 text-amber-300 flex items-center justify-center font-bold mb-4">04</div>
+                        <h4 class="font-bold text-white text-base mb-2">Ekosistem Sehat</h4>
+                        <p class="text-xs sm:text-sm text-indigo-200/80">Mendorong pemanfaatan teknologi secara produktif dan beretika.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Sasaran Pengguna -->
+            <div>
+                <h3 class="font-display text-lg sm:text-xl font-bold text-indigo-300 mb-6 flex items-center gap-2.5">
+                    <i class="fa-solid fa-users"></i> 3 Kelompok Sasaran Pengguna
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-slate-900/80 border border-indigo-400/25 rounded-3xl p-6">
+                        <h4 class="font-display text-xl font-bold text-white mb-2">1. Pelajar SMP / SMA</h4>
+                        <p class="text-sm text-indigo-200/85">Pengguna aktif gawai dan media sosial yang membutuhkan panduan etika siber serta perlindungan privasi.</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-emerald-400/25 rounded-3xl p-6">
+                        <h4 class="font-display text-xl font-bold text-white mb-2">2. Guru & Pendidik</h4>
+                        <p class="text-sm text-indigo-200/85">Fasilitator sekolah (Informatika, PPKn, Guru BK) sebagai acuan modul diskusi pencegahan perundungan.</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-amber-400/25 rounded-3xl p-6">
+                        <h4 class="font-display text-xl font-bold text-white mb-2">3. Orang Tua & Keluarga</h4>
+                        <p class="text-sm text-indigo-200/85">Pendamping remaja di rumah dalam mengawasi penggunaan gawai dan membangun komunikasi sehat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         5. FITUR INTERAKTIF: SOLUSI LINGKUNGAN & CHECKLIST AKSI (#solusi-lingkungan)
+    ====================================================================== -->
+    <section id="solusi-lingkungan" class="py-16 lg:py-24 bg-gradient-to-b from-slate-50 to-indigo-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Fitur Interaktif Unggulan
+                </span>
+                <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-3">
+                    Panduan Solusi Lingkungan & Checklist Aksi
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Pilih tab solusi lingkungan di bawah ini dan centang Rencana Aksi untuk memantau persentase komitmen digitalmu secara <em>real-time</em>!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- KIRI: TAB SOLUSI LINGKUNGAN (7 Kolom) -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-7" role="tablist">
+                        <button type="button" id="sol-tab-sekolah" onclick="switchSolutionTab('sekolah')" class="px-4 py-3 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-indigo-600 text-white shadow-md">
+                            <i class="fa-solid fa-school"></i> Sekolah
+                        </button>
+                        <button type="button" id="sol-tab-keluarga" onclick="switchSolutionTab('keluarga')" class="px-4 py-3 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">
+                            <i class="fa-solid fa-house-user"></i> Keluarga
+                        </button>
+                        <button type="button" id="sol-tab-masyarakat" onclick="switchSolutionTab('masyarakat')" class="px-4 py-3 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">
+                            <i class="fa-solid fa-users"></i> Masyarakat
+                        </button>
+                    </div>
+
+                    <!-- Panel Sekolah -->
+                    <div id="sol-panel-sekolah" class="space-y-4">
+                        <div class="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-100 mb-2">
+                            <h3 class="font-display font-bold text-indigo-950 text-base">Solusi Ekosistem Sekolah</h3>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">1. Deklarasi Etika Digital Kelas</h4>
+                            <p class="text-xs text-slate-600">Menyepakati aturan larangan membuat stiker wajah teman tanpa izin dan menjaga kesantunan di grup kelas.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">2. Pembentukan Duta Literasi & Kanal Aduan</h4>
+                            <p class="text-xs text-slate-600">Mengaktifkan peran OSIS dan Guru BK sebagai tempat pelaporan aman bagi korban cyberbullying.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">3. Pemanfaatan AI Secara Kritis</h4>
+                            <p class="text-xs text-slate-600">Menggunakan AI sebagai alat bantu referensi awal, lalu menulis ulang dengan analisis sendiri.</p>
+                        </div>
+                    </div>
+
+                    <!-- Panel Keluarga -->
+                    <div id="sol-panel-keluarga" class="hidden space-y-4">
+                        <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-100 mb-2">
+                            <h3 class="font-display font-bold text-blue-950 text-base">Solusi Ekosistem Keluarga</h3>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">1. Jam Bebas Gawai (Screen-Free Time)</h4>
+                            <p class="text-xs text-slate-600">Menyepakati waktu tanpa ponsel saat makan malam dan sebelum tidur untuk menghidupkan komunikasi.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">2. Cek Fakta di Grup Keluarga</h4>
+                            <p class="text-xs text-slate-600">Membantu orang tua memverifikasi pesan berantai atau hoaks sebelum disebarkan.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">3. Jaga Kerahasiaan Data Rumah</h4>
+                            <p class="text-xs text-slate-600">Tidak mengunggah dokumen KTP/KK atau kondisi rumah kosong ke media sosial.</p>
+                        </div>
+                    </div>
+
+                    <!-- Panel Masyarakat -->
+                    <div id="sol-panel-masyarakat" class="hidden space-y-4">
+                        <div class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-100 mb-2">
+                            <h3 class="font-display font-bold text-emerald-950 text-base">Solusi Masyarakat & Pergaulan</h3>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">1. Terapkan Filter T.H.I.N.K</h4>
+                            <p class="text-xs text-slate-600">Pastikan komentar bernilai benar, bermanfaat, menginspirasi, perlu, dan santun.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">2. Menjadi Upstander</h4>
+                            <p class="text-xs text-slate-600">Melaporkan akun ujaran kebencian dan memberi dukungan moral kepada korban.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">3. Audit Privasi Akun</h4>
+                            <p class="text-xs text-slate-600">Mengaktifkan autentikasi dua faktor (2FA) dan menghapus jejak unggahan lama yang berisiko.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KANAN: CHECKLIST RENCANA AKSI (5 Kolom) -->
+                <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border-2 border-indigo-100 shadow-lg">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Interaktif</span>
+                        <span id="action-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700">0% Selesai</span>
+                    </div>
+
+                    <h3 class="font-display text-xl font-extrabold text-slate-900 mb-2">Checklist Rencana Aksi Saya</h3>
+                    <p class="text-xs text-slate-500 mb-5">Centang komitmen yang siap kamu terapkan mulai hari ini:</p>
+
+                    <!-- Progress Bar -->
+                    <div class="mb-6">
+                        <div class="flex justify-between text-xs font-semibold text-slate-600 mb-1.5">
+                            <span>Progres Komitmen</span>
+                            <span id="action-count-text">0 / 5 Aksi</span>
+                        </div>
+                        <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                            <div id="action-progress-bar" class="h-full bg-gradient-to-r from-indigo-600 to-emerald-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Checklist Items -->
+                    <div class="space-y-2.5 mb-6">
+                        <label class="flex items-start gap-3 p-3 rounded-2xl border border-slate-200 hover:bg-indigo-50/40 cursor-pointer">
+                            <input type="checkbox" onchange="updateActionProgress()" class="action-item mt-0.5 w-4 h-4 rounded text-indigo-600" data-label="Menjaga kerahasiaan data pribadi (NISN, alamat, nomor HP).">
+                            <span class="text-xs text-slate-700">Menjaga kerahasiaan data pribadi (NISN, alamat, nomor HP).</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 rounded-2xl border border-slate-200 hover:bg-indigo-50/40 cursor-pointer">
+                            <input type="checkbox" onchange="updateActionProgress()" class="action-item mt-0.5 w-4 h-4 rounded text-indigo-600" data-label="Meminta izin sebelum memfoto atau mengunggah wajah teman.">
+                            <span class="text-xs text-slate-700">Meminta izin sebelum memfoto atau mengunggah wajah teman.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 rounded-2xl border border-slate-200 hover:bg-indigo-50/40 cursor-pointer">
+                            <input type="checkbox" onchange="updateActionProgress()" class="action-item mt-0.5 w-4 h-4 rounded text-indigo-600" data-label="Memverifikasi berita (anti-hoaks) sebelum meneruskannya.">
+                            <span class="text-xs text-slate-700">Memverifikasi berita (anti-hoaks) sebelum meneruskannya.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 rounded-2xl border border-slate-200 hover:bg-indigo-50/40 cursor-pointer">
+                            <input type="checkbox" onchange="updateActionProgress()" class="action-item mt-0.5 w-4 h-4 rounded text-indigo-600" data-label="Menolak cyberbullying dan komentar kasar di dunia maya.">
+                            <span class="text-xs text-slate-700">Menolak cyberbullying dan komentar kasar di dunia maya.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 rounded-2xl border border-slate-200 hover:bg-indigo-50/40 cursor-pointer">
+                            <input type="checkbox" onchange="updateActionProgress()" class="action-item mt-0.5 w-4 h-4 rounded text-indigo-600" data-label="Menggunakan AI secara jujur sebagai alat bantu belajar.">
+                            <span class="text-xs text-slate-700">Menggunakan AI secara jujur sebagai alat bantu belajar.</span>
+                        </label>
+                    </div>
+
+                    <div id="action-feedback" class="hidden mb-4 p-3 rounded-xl text-xs font-medium"></div>
+
+                    <!-- Tombol Aksi -->
+                    <div class="flex gap-2">
+                        <button type="button" onclick="copyActionCommitment()" class="flex-1 py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-copy"></i> Salin Komitmen
+                        </button>
+                        <button type="button" onclick="resetActionChecklist()" class="py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         6. PESAN MOTIVASI & REFLEKSI BAHAYA DUNIA MAYA (#motivasi-refleksi)
+    ====================================================================== -->
+    <section id="motivasi-refleksi" class="py-20 lg:py-28 bg-slate-950 text-white relative overflow-hidden">
+        <div class="absolute -top-24 left-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-4xl mx-auto mb-14">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-6">
+                    <i class="fa-solid fa-fire"></i> Refleksi & Motivasi Digital
+                </span>
+
+                <blockquote class="font-display text-2xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight leading-snug text-white mb-6">
+                    “Layar ponselmu memang kecil, tetapi <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-emerald-300">jejak digital yang kamu tinggalkan dapat membayangi masa depanmu selamanya.</span>”
+                </blockquote>
+
+                <p class="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
+                    Dunia maya bukan ruang hampa hukum. Di balik setiap unggahan, ada perasaan manusia dan reputasi masa depan yang sedang dibangun. Gunakan jarimu dengan bijak demi masa depan yang gemilang.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                    <h3 class="font-display text-xl font-bold text-white mb-2">1. Saring Sebelum Sharing</h3>
+                    <p class="text-sm text-slate-300">Tombol hapus tidak pernah benar-benar menghilangkan arsip peladen. Utamakan nalar sebelum menyebar informasi.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                    <h3 class="font-display text-xl font-bold text-white mb-2">2. Kendalikan Algoritma</h3>
+                    <p class="text-sm text-slate-300">Gunakan teknologi untuk produktivitas dan ilmu pengetahuan, bukan sekadar membuang waktu.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                    <h3 class="font-display text-xl font-bold text-white mb-2">3. Empati di Balik Layar</h3>
+                    <p class="text-sm text-slate-300">Jadilah pelajar yang cerdas teknologi sekaligus luhur budi pekerti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         7. TRANSPARANSI AI & PANDUAN DEPLOY GITHUB / GOOGLE APPS SCRIPT
+    ====================================================================== -->
+    <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 pt-14 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+                <!-- Transparansi AI -->
+                <div class="lg:col-span-7 bg-slate-800/70 border border-slate-700 rounded-3xl p-6">
+                    <h3 class="font-display text-base font-bold text-white mb-3">Transparansi Pemanfaatan AI Secara Kritis</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+                        Proyek ini dikembangkan dengan memanfaatkan kecerdasan buatan (AI) secara kritis sebagai alat bantu penulisan kode antarmuka dan struktur HTML. Seluruh materi teori dampak sosial, referensi sumber resmi, dan logika verifikasi telah dikaji serta disesuaikan secara manual.
+                    </p>
+                </div>
+
+                <!-- Panduan Deploy -->
+                <div class="lg:col-span-5 bg-slate-800/70 border border-slate-700 rounded-3xl p-6">
+                    <h3 class="font-display text-base font-bold text-white mb-3">Panduan Deploy (GitHub & Apps Script)</h3>
+                    <div class="space-y-2 text-xs text-slate-300">
+                        <p><strong>GitHub Pages:</strong> Unggah file <code class="text-amber-300">index.html</code> ke repository publik, aktifkan Settings > Pages.</p>
+                        <p><strong>Google Apps Script:</strong> Buat proyek di <code class="text-amber-300">script.google.com</code>, buat file HTML, dan gunakan fungsi <code class="text-amber-300">HtmlService.createHtmlOutputFromFile</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+                <p>© 2026 JejakBijak • Proyek Literasi Dampak Sosial Informatika Pelajar Indonesia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================================
+         JAVASCRIPT
+    ====================================================================== -->
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-xmark');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Tab Wawasan Dampak
+        function switchImpactTab(tabName) {
+            const btnSekolah = document.getElementById('tab-btn-sekolah');
+            const btnHarian = document.getElementById('tab-btn-harian');
+            const panelSekolah = document.getElementById('tab-panel-sekolah');
+            const panelHarian = document.getElementById('tab-panel-harian');
+
+            const activeClass = "px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all bg-indigo-600 text-white shadow-lg";
+            const inactiveClass = "px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100";
+
+            if (tabName === 'sekolah') {
+                btnSekolah.className = activeClass;
+                btnHarian.className = inactiveClass;
+                panelSekolah.classList.remove('hidden');
+                panelSekolah.classList.add('grid');
+                panelHarian.classList.add('hidden');
+                panelHarian.classList.remove('grid');
+            } else {
+                btnHarian.className = activeClass;
+                btnSekolah.className = inactiveClass;
+                panelHarian.classList.remove('hidden');
+                panelHarian.classList.add('grid');
+                panelSekolah.classList.add('hidden');
+                panelSekolah.classList.remove('grid');
+            }
+        }
+
+        // Tab Solusi Lingkungan
+        function switchSolutionTab(envName) {
+            const tabs = ['sekolah', 'keluarga', 'masyarakat'];
+            const activeClass = "px-4 py-3 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-indigo-600 text-white shadow-md";
+            const inactiveClass = "px-4 py-3 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-slate-100 text-slate-700 hover:bg-slate-200";
+
+            tabs.forEach(item => {
+                const btn = document.getElementById(`sol-tab-${item}`);
+                const panel = document.getElementById(`sol-panel-${item}`);
+                if (item === envName) {
+                    btn.className = activeClass;
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.className = inactiveClass;
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
+        // Checklist Aksi Real-time
+        function updateActionProgress() {
+            const checkboxes = document.querySelectorAll('.action-item');
+            const total = checkboxes.length;
+            let checked = 0;
+
+            checkboxes.forEach(cb => { if (cb.checked) checked++; });
+
+            const percent = Math.round((checked / total) * 100);
+            document.getElementById('action-progress-bar').style.width = `${percent}%`;
+            document.getElementById('action-count-text').textContent = `${checked} / ${total} Aksi`;
+            document.getElementById('action-badge').textContent = `${percent}% Selesai`;
+        }
+
+        function copyActionCommitment() {
+            const checkboxes = document.querySelectorAll('.action-item');
+            const selected = [];
+            checkboxes.forEach((cb, i) => {
+                if (cb.checked) selected.push(`${selected.length + 1}. ${cb.getAttribute('data-label')}`);
+            });
+
+            if (selected.length === 0) {
+                alertBox("Silakan centang minimal satu komitmen aksi terlebih dahulu.", false);
+                return;
+            }
+
+            const text = `Komitmen Digital Saya (JejakBijak):\n${selected.join('\n')}\n#JejakBijak #LiterasiDigital`;
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            alertBox("Komitmen aksi berhasil disalin ke clipboard!", true);
+        }
+
+        function resetActionChecklist() {
+            document.querySelectorAll('.action-item').forEach(cb => cb.checked = false);
+            updateActionProgress();
+            alertBox("Daftar aksi berhasil direset.", true);
+        }
+
+        function alertBox(msg, isSuccess) {
+            const fb = document.getElementById('action-feedback');
+            fb.className = `mb-4 p-3 rounded-xl text-xs font-medium ${isSuccess ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-amber-50 text-amber-800 border border-amber-200'}`;
+            fb.textContent = msg;
+            fb.classList.remove('hidden');
+            setTimeout(() => fb.classList.add('hidden'), 3500);
+        }
+    </script>
+</body>
+</html>
